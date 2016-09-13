@@ -7,16 +7,120 @@
 //
 
 #import "AppDelegate.h"
+#import "ZTQTabBar.h"
+#define LocationTimeout 18
+#define ReGeocodeTimeout 18
+@interface AppDelegate () <AMapLocationManagerDelegate>{
+    
+    AMapLocationManager*LocationManager;
+}
 
-@interface AppDelegate ()
 
 @end
 
 @implementation AppDelegate
 
+//判断apiKey是否可用
+- (void)configureAPIKey
+{
+    if ([APIKey length] == 0)
+    {
+        NSString *reason = [NSString stringWithFormat:@"apiKey为空，请检查key是否正确设置。"];
+        [UIAlertController showAlsert:reason withVC:self.window.rootViewController];
+    }
+    
+    [AMapServices sharedServices].apiKey = (NSString *)APIKey;
+    
+}
+
+//创建定位
+- (void)createLocationManager{
+    LocationManager = [AMapLocationManager new];
+    [LocationManager setDesiredAccuracy:kCLLocationAccuracyHundredMeters];
+    LocationManager.delegate = self;
+    [LocationManager setLocationTimeout:LocationTimeout];
+    [LocationManager setReGeocodeTimeout:ReGeocodeTimeout];
+    
+}
+
+//开始定位
+- (void)locationStart{
+    //[LocationManager startUpdatingLocation];
+    _isGetLocatNow = YES;
+    [LocationManager requestLocationWithReGeocode:YES completionBlock:^(CLLocation *location, AMapLocationReGeocode *regeocode, NSError *error) {
+        
+        if (error)
+        {
+            DLog(@"locError:{%ld - %@};", (long)error.code, error.localizedDescription);
+            
+        }
+        
+        DLog(@"location:%@", location);
+        DLog(@"regeocode:%@",regeocode.description);
+        if (regeocode)
+        {
+            if ([NSString StringIsNull:[CityInfo shareUserInfo].cityName]) {
+                [CityInfo shareUserInfo].cityProvince = [regeocode.province substringToIndex:regeocode.province.length -  1];
+                [CityInfo shareUserInfo].cityCountry = regeocode.country;
+                [CityInfo shareUserInfo].cityDistrict = regeocode.district;
+                [CityInfo shareUserInfo].cityStreet = regeocode.street;
+                BOOL isMDcity = [NSString StringIsNull:regeocode.city];
+                if (isMDcity) {
+                    [CityInfo shareUserInfo].cityName = [regeocode.province substringToIndex:regeocode.province.length -  1];
+                    //NSLog(@"%@",[CityInfo shareUserInfo].cityName);
+                }else{
+                    [CityInfo shareUserInfo].cityName = [regeocode.city substringToIndex:regeocode.province.length -  1];
+                    
+                }
+                [_delegate didSUccessLocation];
+                
+            }else{
+                BOOL isMDcity = [NSString StringIsNull:regeocode.city];
+                NSString *Currentcity;
+                if (isMDcity) {
+                    Currentcity = [regeocode.province substringToIndex:regeocode.province.length -  1];
+                    //NSLog(@"%@",[CityInfo shareUserInfo].cityName);
+                }else{
+                    Currentcity = [regeocode.city substringToIndex:regeocode.province.length -  1];
+                    
+                }
+                if ([Currentcity isEqualToString:[CityInfo shareUserInfo].cityName ]) {
+                    [_delegate didSUccessLocation];
+                }else{
+                    [UIAlertController showAlsert:@"当前所选城市与定位城市不一致，是否切换？" withTitle:@"提示" withVC:self.window.rootViewController cancelAction:^{
+                        [_delegate didSUccessLocation];
+                    } okAction:^{
+                        [CityInfo shareUserInfo].cityProvince = [regeocode.province substringToIndex:regeocode.province.length -  1];
+                        [CityInfo shareUserInfo].cityCountry = regeocode.country;
+                        [CityInfo shareUserInfo].cityDistrict = regeocode.district;
+                        [CityInfo shareUserInfo].cityStreet = regeocode.street;
+                        [CityInfo shareUserInfo].cityName = Currentcity;
+                        [_delegate didSUccessLocation];
+                    }];
+                }
+                
+                
+            }
+            //[CityInfo shareUserInfo].cityID = [NSString stringWithFormat:@"CN%@%@",regeocode.citycode,regeocode.adcode];
+            //NSLog(@"reGeocode:%@", regeocode);
+            
+        }else{
+            [UIAlertController showAlsert:@"定位失败" withVC:self.window.rootViewController];
+        }
+        
+    }];
+}
+
+
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    
     // Override point for customization after application launch.
+    _window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+    [_window makeKeyAndVisible];
+    
+    ZTQTabBar *rootTabBar = [ZTQTabBar new];
+    _window.rootViewController = rootTabBar;
     return YES;
 }
 

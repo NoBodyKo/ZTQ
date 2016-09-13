@@ -7,10 +7,19 @@
 //
 
 #import <UIKit/UIKit.h>
+@protocol AddressDelegate <NSObject>
+@optional
+-(void)getLatitude:(CLLocationDegrees)latitude withLongitude:(CLLocationDegrees)longitud;
+-(void)didSUccessLocation;
+-(void)didFailedLocation;
+@end
+
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
+@property(nonatomic,strong)id<AddressDelegate> delegate;
 @property (strong, nonatomic) UIWindow *window;
+@property (nonatomic, assign) BOOL isGetLocatNow;
 
 
 @end

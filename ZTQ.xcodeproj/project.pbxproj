@@ -7,6 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3012F28E1D8791700041E015 /* UILabel+UILableEx.m in Sources */ = {isa = PBXBuildFile; fileRef = 3012F28D1D8791700041E015 /* UILabel+UILableEx.m */; };
+		3012F2921D8795060041E015 /* WheatherInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3012F2911D8795060041E015 /* WheatherInfoModel.m */; };
+		302268FB1D824E3500493AD0 /* MyDbUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 302268FA1D824E3500493AD0 /* MyDbUtil.m */; };
+		302269021D82521900493AD0 /* CityModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 302269011D82521900493AD0 /* CityModel.m */; };
+		302269051D82522A00493AD0 /* ProvinceModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 302269041D82522A00493AD0 /* ProvinceModel.m */; };
+		302269081D82524000493AD0 /* ScenicSpotModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 302269071D82524000493AD0 /* ScenicSpotModel.m */; };
+		302269171D827FB700493AD0 /* CityDao.m in Sources */ = {isa = PBXBuildFile; fileRef = 302269161D827FB700493AD0 /* CityDao.m */; };
+		3022691A1D82857F00493AD0 /* ProvinceDao.m in Sources */ = {isa = PBXBuildFile; fileRef = 302269191D82857F00493AD0 /* ProvinceDao.m */; };
+		3022691D1D82866500493AD0 /* ScenicSpotDao.m in Sources */ = {isa = PBXBuildFile; fileRef = 3022691C1D82866500493AD0 /* ScenicSpotDao.m */; };
+		302269201D82A05C00493AD0 /* CityInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 3022691F1D82A05C00493AD0 /* CityInfo.m */; };
+		302269231D82A6B200493AD0 /* ScenicSpotInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 302269221D82A6B200493AD0 /* ScenicSpotInfo.m */; };
+		302269281D82B06300493AD0 /* UIAlertController+CustomAlert.m in Sources */ = {isa = PBXBuildFile; fileRef = 302269271D82B06300493AD0 /* UIAlertController+CustomAlert.m */; };
+		3022692B1D82B1CB00493AD0 /* NSString+StringEx.m in Sources */ = {isa = PBXBuildFile; fileRef = 3022692A1D82B1CB00493AD0 /* NSString+StringEx.m */; };
 		30AA45AD1D59D0FF00EAAEC5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 30AA45AC1D59D0FF00EAAEC5 /* main.m */; };
 		30AA45B01D59D0FF00EAAEC5 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 30AA45AF1D59D0FF00EAAEC5 /* AppDelegate.m */; };
 		30AA45B31D59D0FF00EAAEC5 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 30AA45B21D59D0FF00EAAEC5 /* ViewController.m */; };
@@ -15,6 +28,21 @@
 		30AA45BB1D59D0FF00EAAEC5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 30AA45B91D59D0FF00EAAEC5 /* LaunchScreen.storyboard */; };
 		30AA45C61D59D0FF00EAAEC5 /* ZTQTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 30AA45C51D59D0FF00EAAEC5 /* ZTQTests.m */; };
 		30AA45D11D59D0FF00EAAEC5 /* ZTQUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 30AA45D01D59D0FF00EAAEC5 /* ZTQUITests.m */; };
+		30C8E9171D810BEE00CB5A20 /* province.db in Resources */ = {isa = PBXBuildFile; fileRef = 30C8E9161D810BEE00CB5A20 /* province.db */; };
+		30C8E91E1D812B1C00CB5A20 /* MyRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 30C8E91D1D812B1C00CB5A20 /* MyRequest.m */; };
+		30DC8B771D86448000625120 /* ZTQFutureWeatherInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 30DC8B751D86448000625120 /* ZTQFutureWeatherInfo.m */; };
+		30DC8B781D86448000625120 /* ZTQFutureWeatherInfo.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30DC8B761D86448000625120 /* ZTQFutureWeatherInfo.xib */; };
+		30DC8B7C1D86449800625120 /* ZTQLifeInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 30DC8B7A1D86449800625120 /* ZTQLifeInfo.m */; };
+		30DC8B7D1D86449800625120 /* ZTQLifeInfo.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30DC8B7B1D86449800625120 /* ZTQLifeInfo.xib */; };
+		30DC8B801D8644B200625120 /* ZTQScenicWeatherInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 30DC8B7F1D8644B200625120 /* ZTQScenicWeatherInfo.m */; };
+		30DC8B851D86479400625120 /* VCFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 30DC8B841D86479400625120 /* VCFactory.m */; };
+		30DC8B891D8649BB00625120 /* ZTQTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 30DC8B881D8649BB00625120 /* ZTQTabBar.m */; };
+		30DC8B8C1D864AAB00625120 /* UIImage+UIImageEx.m in Sources */ = {isa = PBXBuildFile; fileRef = 30DC8B8B1D864AAB00625120 /* UIImage+UIImageEx.m */; };
+		30DC8B901D86540100625120 /* bigShadow.png in Resources */ = {isa = PBXBuildFile; fileRef = 30DC8B8F1D86540100625120 /* bigShadow.png */; };
+		30DC8B961D86B4A200625120 /* ZTQBasicWeatherInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 30DC8B941D86B4A200625120 /* ZTQBasicWeatherInfo.m */; };
+		30DC8B971D86B4A200625120 /* ZTQBasicWeatherInfo.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30DC8B951D86B4A200625120 /* ZTQBasicWeatherInfo.xib */; };
+		30DC8B9A1D86F01E00625120 /* ZTQWheatherInfoCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 30DC8B991D86F01E00625120 /* ZTQWheatherInfoCollectionViewCell.m */; };
+		5C9B616A50C1DE614ABCCFEA /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FC2DF6BD460E41395A16E2BD /* libPods.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +63,33 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3012F28C1D8791700041E015 /* UILabel+UILableEx.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+UILableEx.h"; sourceTree = "<group>"; };
+		3012F28D1D8791700041E015 /* UILabel+UILableEx.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+UILableEx.m"; sourceTree = "<group>"; };
+		3012F2901D8795060041E015 /* WheatherInfoModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WheatherInfoModel.h; sourceTree = "<group>"; };
+		3012F2911D8795060041E015 /* WheatherInfoModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WheatherInfoModel.m; sourceTree = "<group>"; };
+		302268F91D824E3500493AD0 /* MyDbUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyDbUtil.h; sourceTree = "<group>"; };
+		302268FA1D824E3500493AD0 /* MyDbUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyDbUtil.m; sourceTree = "<group>"; };
+		302269001D82521900493AD0 /* CityModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CityModel.h; sourceTree = "<group>"; };
+		302269011D82521900493AD0 /* CityModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CityModel.m; sourceTree = "<group>"; };
+		302269031D82522A00493AD0 /* ProvinceModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProvinceModel.h; sourceTree = "<group>"; };
+		302269041D82522A00493AD0 /* ProvinceModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProvinceModel.m; sourceTree = "<group>"; };
+		302269061D82524000493AD0 /* ScenicSpotModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScenicSpotModel.h; sourceTree = "<group>"; };
+		302269071D82524000493AD0 /* ScenicSpotModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScenicSpotModel.m; sourceTree = "<group>"; };
+		302269151D827FB700493AD0 /* CityDao.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CityDao.h; sourceTree = "<group>"; };
+		302269161D827FB700493AD0 /* CityDao.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CityDao.m; sourceTree = "<group>"; };
+		302269181D82857F00493AD0 /* ProvinceDao.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProvinceDao.h; sourceTree = "<group>"; };
+		302269191D82857F00493AD0 /* ProvinceDao.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProvinceDao.m; sourceTree = "<group>"; };
+		3022691B1D82866500493AD0 /* ScenicSpotDao.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScenicSpotDao.h; sourceTree = "<group>"; };
+		3022691C1D82866500493AD0 /* ScenicSpotDao.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScenicSpotDao.m; sourceTree = "<group>"; };
+		3022691E1D82A05C00493AD0 /* CityInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CityInfo.h; sourceTree = "<group>"; };
+		3022691F1D82A05C00493AD0 /* CityInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CityInfo.m; sourceTree = "<group>"; };
+		302269211D82A6B200493AD0 /* ScenicSpotInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScenicSpotInfo.h; sourceTree = "<group>"; };
+		302269221D82A6B200493AD0 /* ScenicSpotInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScenicSpotInfo.m; sourceTree = "<group>"; };
+		302269251D82AB4900493AD0 /* APIKey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APIKey.h; sourceTree = "<group>"; };
+		302269261D82B06300493AD0 /* UIAlertController+CustomAlert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIAlertController+CustomAlert.h"; sourceTree = "<group>"; };
+		302269271D82B06300493AD0 /* UIAlertController+CustomAlert.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIAlertController+CustomAlert.m"; sourceTree = "<group>"; };
+		302269291D82B1CB00493AD0 /* NSString+StringEx.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+StringEx.h"; sourceTree = "<group>"; };
+		3022692A1D82B1CB00493AD0 /* NSString+StringEx.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+StringEx.m"; sourceTree = "<group>"; };
 		30AA45A81D59D0FF00EAAEC5 /* ZTQ.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZTQ.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		30AA45AC1D59D0FF00EAAEC5 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		30AA45AE1D59D0FF00EAAEC5 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -51,6 +106,33 @@
 		30AA45CC1D59D0FF00EAAEC5 /* ZTQUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ZTQUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		30AA45D01D59D0FF00EAAEC5 /* ZTQUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZTQUITests.m; sourceTree = "<group>"; };
 		30AA45D21D59D0FF00EAAEC5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		30C8E9161D810BEE00CB5A20 /* province.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = province.db; sourceTree = SOURCE_ROOT; };
+		30C8E9181D81135800CB5A20 /* ZTQPrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZTQPrefixHeader.pch; sourceTree = "<group>"; wrapsLines = 0; };
+		30C8E91C1D812B1C00CB5A20 /* MyRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyRequest.h; sourceTree = "<group>"; };
+		30C8E91D1D812B1C00CB5A20 /* MyRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyRequest.m; sourceTree = "<group>"; };
+		30DC8B741D86448000625120 /* ZTQFutureWeatherInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZTQFutureWeatherInfo.h; sourceTree = "<group>"; };
+		30DC8B751D86448000625120 /* ZTQFutureWeatherInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZTQFutureWeatherInfo.m; sourceTree = "<group>"; };
+		30DC8B761D86448000625120 /* ZTQFutureWeatherInfo.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZTQFutureWeatherInfo.xib; sourceTree = "<group>"; };
+		30DC8B791D86449800625120 /* ZTQLifeInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZTQLifeInfo.h; sourceTree = "<group>"; };
+		30DC8B7A1D86449800625120 /* ZTQLifeInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZTQLifeInfo.m; sourceTree = "<group>"; };
+		30DC8B7B1D86449800625120 /* ZTQLifeInfo.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZTQLifeInfo.xib; sourceTree = "<group>"; };
+		30DC8B7E1D8644B200625120 /* ZTQScenicWeatherInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZTQScenicWeatherInfo.h; sourceTree = "<group>"; };
+		30DC8B7F1D8644B200625120 /* ZTQScenicWeatherInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZTQScenicWeatherInfo.m; sourceTree = "<group>"; };
+		30DC8B831D86479400625120 /* VCFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VCFactory.h; sourceTree = "<group>"; };
+		30DC8B841D86479400625120 /* VCFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VCFactory.m; sourceTree = "<group>"; };
+		30DC8B871D8649BB00625120 /* ZTQTabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZTQTabBar.h; sourceTree = "<group>"; };
+		30DC8B881D8649BB00625120 /* ZTQTabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZTQTabBar.m; sourceTree = "<group>"; };
+		30DC8B8A1D864AAB00625120 /* UIImage+UIImageEx.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+UIImageEx.h"; sourceTree = "<group>"; };
+		30DC8B8B1D864AAB00625120 /* UIImage+UIImageEx.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+UIImageEx.m"; sourceTree = "<group>"; };
+		30DC8B8F1D86540100625120 /* bigShadow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bigShadow.png; sourceTree = "<group>"; };
+		30DC8B931D86B4A200625120 /* ZTQBasicWeatherInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZTQBasicWeatherInfo.h; sourceTree = "<group>"; };
+		30DC8B941D86B4A200625120 /* ZTQBasicWeatherInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZTQBasicWeatherInfo.m; sourceTree = "<group>"; };
+		30DC8B951D86B4A200625120 /* ZTQBasicWeatherInfo.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZTQBasicWeatherInfo.xib; sourceTree = "<group>"; };
+		30DC8B981D86F01E00625120 /* ZTQWheatherInfoCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZTQWheatherInfoCollectionViewCell.h; sourceTree = "<group>"; };
+		30DC8B991D86F01E00625120 /* ZTQWheatherInfoCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZTQWheatherInfoCollectionViewCell.m; sourceTree = "<group>"; };
+		A6BC6C76ACD09CE7DD0B0402 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		F2E3D480E713E6DE8206CF37 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		FC2DF6BD460E41395A16E2BD /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +140,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5C9B616A50C1DE614ABCCFEA /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -78,13 +161,108 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3012F28F1D8794EB0041E015 /* WheatherInfoModel */ = {
+			isa = PBXGroup;
+			children = (
+				3012F2901D8795060041E015 /* WheatherInfoModel.h */,
+				3012F2911D8795060041E015 /* WheatherInfoModel.m */,
+			);
+			path = WheatherInfoModel;
+			sourceTree = "<group>";
+		};
+		302268FC1D82505000493AD0 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				3012F28F1D8794EB0041E015 /* WheatherInfoModel */,
+				302268FD1D82505000493AD0 /* CityModel */,
+				302268FE1D82505000493AD0 /* ProvinceModel */,
+				302268FF1D82505000493AD0 /* ScenicSpotModel */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		302268FD1D82505000493AD0 /* CityModel */ = {
+			isa = PBXGroup;
+			children = (
+				302269001D82521900493AD0 /* CityModel.h */,
+				302269011D82521900493AD0 /* CityModel.m */,
+			);
+			path = CityModel;
+			sourceTree = "<group>";
+		};
+		302268FE1D82505000493AD0 /* ProvinceModel */ = {
+			isa = PBXGroup;
+			children = (
+				302269031D82522A00493AD0 /* ProvinceModel.h */,
+				302269041D82522A00493AD0 /* ProvinceModel.m */,
+			);
+			path = ProvinceModel;
+			sourceTree = "<group>";
+		};
+		302268FF1D82505000493AD0 /* ScenicSpotModel */ = {
+			isa = PBXGroup;
+			children = (
+				302269061D82524000493AD0 /* ScenicSpotModel.h */,
+				302269071D82524000493AD0 /* ScenicSpotModel.m */,
+			);
+			path = ScenicSpotModel;
+			sourceTree = "<group>";
+		};
+		302269111D827E8E00493AD0 /* DAO */ = {
+			isa = PBXGroup;
+			children = (
+				302269121D827E8E00493AD0 /* CityDao */,
+				302269131D827E8E00493AD0 /* ProvinceDao */,
+				302269141D827E8E00493AD0 /* ScenicSpotDao */,
+			);
+			path = DAO;
+			sourceTree = "<group>";
+		};
+		302269121D827E8E00493AD0 /* CityDao */ = {
+			isa = PBXGroup;
+			children = (
+				302269151D827FB700493AD0 /* CityDao.h */,
+				302269161D827FB700493AD0 /* CityDao.m */,
+			);
+			path = CityDao;
+			sourceTree = "<group>";
+		};
+		302269131D827E8E00493AD0 /* ProvinceDao */ = {
+			isa = PBXGroup;
+			children = (
+				302269181D82857F00493AD0 /* ProvinceDao.h */,
+				302269191D82857F00493AD0 /* ProvinceDao.m */,
+			);
+			path = ProvinceDao;
+			sourceTree = "<group>";
+		};
+		302269141D827E8E00493AD0 /* ScenicSpotDao */ = {
+			isa = PBXGroup;
+			children = (
+				3022691B1D82866500493AD0 /* ScenicSpotDao.h */,
+				3022691C1D82866500493AD0 /* ScenicSpotDao.m */,
+			);
+			path = ScenicSpotDao;
+			sourceTree = "<group>";
+		};
+		302269241D82AAFD00493AD0 /* Configer */ = {
+			isa = PBXGroup;
+			children = (
+				302269251D82AB4900493AD0 /* APIKey.h */,
+			);
+			path = Configer;
+			sourceTree = "<group>";
+		};
 		30AA459F1D59D0FF00EAAEC5 = {
 			isa = PBXGroup;
 			children = (
+				30AA45DE1D59D67500EAAEC5 /* ZTQSource */,
 				30AA45AA1D59D0FF00EAAEC5 /* ZTQ */,
 				30AA45C41D59D0FF00EAAEC5 /* ZTQTests */,
 				30AA45CF1D59D0FF00EAAEC5 /* ZTQUITests */,
 				30AA45A91D59D0FF00EAAEC5 /* Products */,
+				C136A38FA762857829FE8518 /* Pods */,
+				79AA09BF3FC9EDA8BFD9C4DB /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -118,6 +296,8 @@
 			isa = PBXGroup;
 			children = (
 				30AA45AC1D59D0FF00EAAEC5 /* main.m */,
+				30C8E9161D810BEE00CB5A20 /* province.db */,
+				30C8E9181D81135800CB5A20 /* ZTQPrefixHeader.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -140,6 +320,219 @@
 			path = ZTQUITests;
 			sourceTree = "<group>";
 		};
+		30AA45DE1D59D67500EAAEC5 /* ZTQSource */ = {
+			isa = PBXGroup;
+			children = (
+				30DC8B8D1D86540100625120 /* ImageSource */,
+				30AA45DF1D59D67500EAAEC5 /* Common */,
+				30AA45E31D59D67500EAAEC5 /* iPhone */,
+			);
+			path = ZTQSource;
+			sourceTree = "<group>";
+		};
+		30AA45DF1D59D67500EAAEC5 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				30DC8B811D86477500625120 /* Factory */,
+				302269241D82AAFD00493AD0 /* Configer */,
+				302268FC1D82505000493AD0 /* Models */,
+				30C8E9191D812AE400CB5A20 /* Utils */,
+				30AA45E01D59D67500EAAEC5 /* Category */,
+				30AA45E11D59D67500EAAEC5 /* Class */,
+				30AA45E21D59D67500EAAEC5 /* Singleton */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		30AA45E01D59D67500EAAEC5 /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				302269261D82B06300493AD0 /* UIAlertController+CustomAlert.h */,
+				302269271D82B06300493AD0 /* UIAlertController+CustomAlert.m */,
+				302269291D82B1CB00493AD0 /* NSString+StringEx.h */,
+				3022692A1D82B1CB00493AD0 /* NSString+StringEx.m */,
+				30DC8B8A1D864AAB00625120 /* UIImage+UIImageEx.h */,
+				30DC8B8B1D864AAB00625120 /* UIImage+UIImageEx.m */,
+				3012F28C1D8791700041E015 /* UILabel+UILableEx.h */,
+				3012F28D1D8791700041E015 /* UILabel+UILableEx.m */,
+			);
+			path = Category;
+			sourceTree = "<group>";
+		};
+		30AA45E11D59D67500EAAEC5 /* Class */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Class;
+			sourceTree = "<group>";
+		};
+		30AA45E21D59D67500EAAEC5 /* Singleton */ = {
+			isa = PBXGroup;
+			children = (
+				3022691E1D82A05C00493AD0 /* CityInfo.h */,
+				3022691F1D82A05C00493AD0 /* CityInfo.m */,
+				302269211D82A6B200493AD0 /* ScenicSpotInfo.h */,
+				302269221D82A6B200493AD0 /* ScenicSpotInfo.m */,
+			);
+			path = Singleton;
+			sourceTree = "<group>";
+		};
+		30AA45E31D59D67500EAAEC5 /* iPhone */ = {
+			isa = PBXGroup;
+			children = (
+				30DC8B861D86499300625120 /* ZTQTabBar */,
+				30AA45E41D59D67500EAAEC5 /* ZTQBasicWeatherInfo */,
+				30AA45E51D59D67500EAAEC5 /* ZTQFutureWeatherInfo */,
+				30AA45E61D59D67500EAAEC5 /* ZTQLifeInfo */,
+				30AA45E71D59D67500EAAEC5 /* ZTQScenicWeatherInfo */,
+			);
+			path = iPhone;
+			sourceTree = "<group>";
+		};
+		30AA45E41D59D67500EAAEC5 /* ZTQBasicWeatherInfo */ = {
+			isa = PBXGroup;
+			children = (
+				30DC8B911D86B44500625120 /* Controller */,
+				30DC8B921D86B44500625120 /* View */,
+			);
+			path = ZTQBasicWeatherInfo;
+			sourceTree = "<group>";
+		};
+		30AA45E51D59D67500EAAEC5 /* ZTQFutureWeatherInfo */ = {
+			isa = PBXGroup;
+			children = (
+				30DC8B741D86448000625120 /* ZTQFutureWeatherInfo.h */,
+				30DC8B751D86448000625120 /* ZTQFutureWeatherInfo.m */,
+				30DC8B761D86448000625120 /* ZTQFutureWeatherInfo.xib */,
+			);
+			path = ZTQFutureWeatherInfo;
+			sourceTree = "<group>";
+		};
+		30AA45E61D59D67500EAAEC5 /* ZTQLifeInfo */ = {
+			isa = PBXGroup;
+			children = (
+				30DC8B791D86449800625120 /* ZTQLifeInfo.h */,
+				30DC8B7A1D86449800625120 /* ZTQLifeInfo.m */,
+				30DC8B7B1D86449800625120 /* ZTQLifeInfo.xib */,
+			);
+			path = ZTQLifeInfo;
+			sourceTree = "<group>";
+		};
+		30AA45E71D59D67500EAAEC5 /* ZTQScenicWeatherInfo */ = {
+			isa = PBXGroup;
+			children = (
+				30DC8B7E1D8644B200625120 /* ZTQScenicWeatherInfo.h */,
+				30DC8B7F1D8644B200625120 /* ZTQScenicWeatherInfo.m */,
+			);
+			path = ZTQScenicWeatherInfo;
+			sourceTree = "<group>";
+		};
+		30C8E9191D812AE400CB5A20 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				302269111D827E8E00493AD0 /* DAO */,
+				30C8E91A1D812AE400CB5A20 /* DbUtil */,
+				30C8E91B1D812AE400CB5A20 /* RequestUtil */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		30C8E91A1D812AE400CB5A20 /* DbUtil */ = {
+			isa = PBXGroup;
+			children = (
+				302268F91D824E3500493AD0 /* MyDbUtil.h */,
+				302268FA1D824E3500493AD0 /* MyDbUtil.m */,
+			);
+			path = DbUtil;
+			sourceTree = "<group>";
+		};
+		30C8E91B1D812AE400CB5A20 /* RequestUtil */ = {
+			isa = PBXGroup;
+			children = (
+				30C8E91C1D812B1C00CB5A20 /* MyRequest.h */,
+				30C8E91D1D812B1C00CB5A20 /* MyRequest.m */,
+			);
+			path = RequestUtil;
+			sourceTree = "<group>";
+		};
+		30DC8B811D86477500625120 /* Factory */ = {
+			isa = PBXGroup;
+			children = (
+				30DC8B821D86477500625120 /* VCFactory */,
+			);
+			path = Factory;
+			sourceTree = "<group>";
+		};
+		30DC8B821D86477500625120 /* VCFactory */ = {
+			isa = PBXGroup;
+			children = (
+				30DC8B831D86479400625120 /* VCFactory.h */,
+				30DC8B841D86479400625120 /* VCFactory.m */,
+			);
+			path = VCFactory;
+			sourceTree = "<group>";
+		};
+		30DC8B861D86499300625120 /* ZTQTabBar */ = {
+			isa = PBXGroup;
+			children = (
+				30DC8B871D8649BB00625120 /* ZTQTabBar.h */,
+				30DC8B881D8649BB00625120 /* ZTQTabBar.m */,
+			);
+			path = ZTQTabBar;
+			sourceTree = "<group>";
+		};
+		30DC8B8D1D86540100625120 /* ImageSource */ = {
+			isa = PBXGroup;
+			children = (
+				30DC8B8E1D86540100625120 /* NavImage */,
+			);
+			path = ImageSource;
+			sourceTree = "<group>";
+		};
+		30DC8B8E1D86540100625120 /* NavImage */ = {
+			isa = PBXGroup;
+			children = (
+				30DC8B8F1D86540100625120 /* bigShadow.png */,
+			);
+			path = NavImage;
+			sourceTree = "<group>";
+		};
+		30DC8B911D86B44500625120 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				30DC8B931D86B4A200625120 /* ZTQBasicWeatherInfo.h */,
+				30DC8B941D86B4A200625120 /* ZTQBasicWeatherInfo.m */,
+				30DC8B951D86B4A200625120 /* ZTQBasicWeatherInfo.xib */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		30DC8B921D86B44500625120 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				30DC8B981D86F01E00625120 /* ZTQWheatherInfoCollectionViewCell.h */,
+				30DC8B991D86F01E00625120 /* ZTQWheatherInfoCollectionViewCell.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		79AA09BF3FC9EDA8BFD9C4DB /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				FC2DF6BD460E41395A16E2BD /* libPods.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C136A38FA762857829FE8518 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A6BC6C76ACD09CE7DD0B0402 /* Pods.debug.xcconfig */,
+				F2E3D480E713E6DE8206CF37 /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -147,9 +540,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 30AA45D51D59D0FF00EAAEC5 /* Build configuration list for PBXNativeTarget "ZTQ" */;
 			buildPhases = (
+				CA8C323691894F3804DD78BF /* Check Pods Manifest.lock */,
 				30AA45A41D59D0FF00EAAEC5 /* Sources */,
 				30AA45A51D59D0FF00EAAEC5 /* Frameworks */,
 				30AA45A61D59D0FF00EAAEC5 /* Resources */,
+				E09848F749A035303AD5A6B5 /* Embed Pods Frameworks */,
+				DE2DC1A60E8EFD8DE18605D5 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -246,7 +642,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				30DC8B901D86540100625120 /* bigShadow.png in Resources */,
+				30DC8B7D1D86449800625120 /* ZTQLifeInfo.xib in Resources */,
+				30DC8B781D86448000625120 /* ZTQFutureWeatherInfo.xib in Resources */,
 				30AA45BB1D59D0FF00EAAEC5 /* LaunchScreen.storyboard in Resources */,
+				30C8E9171D810BEE00CB5A20 /* province.db in Resources */,
+				30DC8B971D86B4A200625120 /* ZTQBasicWeatherInfo.xib in Resources */,
 				30AA45B81D59D0FF00EAAEC5 /* Assets.xcassets in Resources */,
 				30AA45B61D59D0FF00EAAEC5 /* Main.storyboard in Resources */,
 			);
@@ -268,14 +669,84 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		CA8C323691894F3804DD78BF /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		DE2DC1A60E8EFD8DE18605D5 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E09848F749A035303AD5A6B5 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		30AA45A41D59D0FF00EAAEC5 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				302269081D82524000493AD0 /* ScenicSpotModel.m in Sources */,
 				30AA45B31D59D0FF00EAAEC5 /* ViewController.m in Sources */,
+				30DC8B9A1D86F01E00625120 /* ZTQWheatherInfoCollectionViewCell.m in Sources */,
+				30C8E91E1D812B1C00CB5A20 /* MyRequest.m in Sources */,
+				30DC8B851D86479400625120 /* VCFactory.m in Sources */,
 				30AA45B01D59D0FF00EAAEC5 /* AppDelegate.m in Sources */,
+				3012F2921D8795060041E015 /* WheatherInfoModel.m in Sources */,
+				3022691D1D82866500493AD0 /* ScenicSpotDao.m in Sources */,
+				30DC8B8C1D864AAB00625120 /* UIImage+UIImageEx.m in Sources */,
+				3022692B1D82B1CB00493AD0 /* NSString+StringEx.m in Sources */,
+				302269231D82A6B200493AD0 /* ScenicSpotInfo.m in Sources */,
+				30DC8B961D86B4A200625120 /* ZTQBasicWeatherInfo.m in Sources */,
+				3022691A1D82857F00493AD0 /* ProvinceDao.m in Sources */,
 				30AA45AD1D59D0FF00EAAEC5 /* main.m in Sources */,
+				302269281D82B06300493AD0 /* UIAlertController+CustomAlert.m in Sources */,
+				302269051D82522A00493AD0 /* ProvinceModel.m in Sources */,
+				30DC8B801D8644B200625120 /* ZTQScenicWeatherInfo.m in Sources */,
+				302269021D82521900493AD0 /* CityModel.m in Sources */,
+				302269171D827FB700493AD0 /* CityDao.m in Sources */,
+				3012F28E1D8791700041E015 /* UILabel+UILableEx.m in Sources */,
+				30DC8B891D8649BB00625120 /* ZTQTabBar.m in Sources */,
+				30DC8B771D86448000625120 /* ZTQFutureWeatherInfo.m in Sources */,
+				302269201D82A05C00493AD0 /* CityInfo.m in Sources */,
+				302268FB1D824E3500493AD0 /* MyDbUtil.m in Sources */,
+				30DC8B7C1D86449800625120 /* ZTQLifeInfo.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -414,8 +885,11 @@
 		};
 		30AA45D61D59D0FF00EAAEC5 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A6BC6C76ACD09CE7DD0B0402 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = ZTQ/ZTQPrefixHeader.pch;
 				INFOPLIST_FILE = ZTQ/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.yh.ZTQ;
@@ -425,8 +899,11 @@
 		};
 		30AA45D71D59D0FF00EAAEC5 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F2E3D480E713E6DE8206CF37 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = ZTQ/ZTQPrefixHeader.pch;
 				INFOPLIST_FILE = ZTQ/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.yh.ZTQ;
@@ -499,6 +976,7 @@
 				30AA45D71D59D0FF00EAAEC5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		30AA45D81D59D0FF00EAAEC5 /* Build configuration list for PBXNativeTarget "ZTQTests" */ = {
 			isa = XCConfigurationList;
@@ -507,6 +985,7 @@
 				30AA45DA1D59D0FF00EAAEC5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		30AA45DB1D59D0FF00EAAEC5 /* Build configuration list for PBXNativeTarget "ZTQUITests" */ = {
 			isa = XCConfigurationList;
@@ -515,6 +994,7 @@
 				30AA45DD1D59D0FF00EAAEC5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -1,0 +1,55 @@
+//
+//  ZTQPrefixHeader.pch
+//  ZTQ
+//
+//  Created by 杨洪 on 16/9/8.
+//  Copyright © 2016年 杨洪. All rights reserved.
+//
+
+#ifndef ZTQPrefixHeader_pch
+#define ZTQPrefixHeader_pch
+
+#ifdef DEBUG
+#   define DLog(fmt, ...) NSLog((@"%s [Line %d] " fmt), __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__);
+#else
+#   define DLog(...)
+#endif
+
+#define WIDTH [UIScreen mainScreen].bounds.size.width
+#define HEIGHT [UIScreen mainScreen].bounds.size.height
+
+//三方
+#import <AFNetworking.h>
+#import <ShareSDK/ShareSDK.h>
+#import <ShareSDKConnector/ShareSDKConnector.h>
+
+//腾讯开放平台（对应QQ和QQ空间）SDK头文件
+#import <TencentOpenAPI/TencentOAuth.h>
+#import <TencentOpenAPI/QQApiInterface.h>
+
+//微信SDK头文件
+#import "WXApi.h"
+#import <SDWebImageManager.h>
+//数据库
+#import <FMDB/FMDatabase.h>
+//地图定位
+#import "APIKey.h"
+#import <AMapFoundationKit/AMapFoundationKit.h>
+#import <AMapLocationKit/AMapLocationKit.h>
+//UI
+#import <Masonry.h>
+//本地
+#import "MyDbUtil.h"
+#import "MyRequest.h"
+#import "UIAlertController+CustomAlert.h"
+#import "NSString+StringEx.h"
+#import "CityInfo.h"
+#import "ScenicSpotInfo.h"
+#import "VCFactory.h"
+#import "UIImage+UIImageEx.h"
+
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+#endif /* ZTQPrefixHeader_pch */
