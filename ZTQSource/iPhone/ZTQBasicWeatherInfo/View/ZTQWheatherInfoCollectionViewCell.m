@@ -11,11 +11,11 @@
 #define MYHEIGHT 300
 
 @implementation ZTQWheatherInfoCollectionViewCell{
-    UILabel *myDateLabel;
-    UILabel *myTmpLabel;
-    UILabel *myHumLabel;
-    UILabel *myWindDirLabel;
-    UILabel *myWindScLabel;
+    ZTQCustomLabel *myDateLabel;
+    ZTQCustomLabel *myTmpLabel;
+    ZTQCustomLabel *myHumLabel;
+    ZTQCustomLabel *myWindDirLabel;
+    ZTQCustomLabel *myWindScLabel;
     
     UIView *cellView;
 }
@@ -29,18 +29,20 @@
 
 -(void) creatUI{
     cellView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.frame), CGRectGetHeight(self.frame))];
-    myDateLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.frame), CGRectGetHeight(self.frame) / 5)];
-    myDateLabel.textColor = [UIColor whiteColor];
+    myDateLabel = [[ZTQCustomLabel alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.frame), CGRectGetHeight(self.frame) / 5)];
+   
     
-    myTmpLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(myDateLabel.frame), CGRectGetWidth(self.frame), CGRectGetHeight(self.frame) / 5)];
-    myTmpLabel.textColor = [UIColor whiteColor];
+    myTmpLabel = [[ZTQCustomLabel alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(myDateLabel.frame), CGRectGetWidth(self.frame), CGRectGetHeight(self.frame) / 5)];
+  
     
-    myHumLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(myTmpLabel.frame), CGRectGetWidth(self.frame), CGRectGetHeight(self.frame) / 5)];
-    myHumLabel.textColor = [UIColor whiteColor];
-    myWindDirLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(myHumLabel.frame), CGRectGetWidth(self.frame), CGRectGetHeight(self.frame) / 5)];
+    myHumLabel = [[ZTQCustomLabel alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(myTmpLabel.frame), CGRectGetWidth(self.frame), CGRectGetHeight(self.frame) / 5)];
+    
+    myWindDirLabel = [[ZTQCustomLabel alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(myHumLabel.frame), CGRectGetWidth(self.frame), CGRectGetHeight(self.frame) / 5)];
     myWindDirLabel.textColor = [UIColor whiteColor];
-    myWindScLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(myWindDirLabel.frame), CGRectGetWidth(self.frame), CGRectGetHeight(self.frame) / 5)];
-    myWindScLabel.textColor = [UIColor whiteColor];
+    
+    
+    myWindScLabel = [[ZTQCustomLabel alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(myWindDirLabel.frame), CGRectGetWidth(self.frame), CGRectGetHeight(self.frame) / 5)];
+    myWindScLabel.textAlignment = NSTextAlignmentCenter;
     [cellView addSubview:myDateLabel];
     [cellView addSubview:myTmpLabel];
     [cellView addSubview:myHumLabel];
@@ -53,6 +55,23 @@
     [self.contentView addSubview:cellView];
 }
 
+- (void)setDataWith:(ZTQHourlyWeatherInfo *)model{
+ 
+    NSArray *array=[model.date componentsSeparatedByString:@" "];
+    if (array.count > 1) {
+        NSString *str = array[1];
+        myDateLabel.text = str;
+    }else{
+        myDateLabel.text = model.date;
+    }
+    
+    
+    myTmpLabel.text = [NSString stringWithFormat:@"%@°",model.tmp];
+    myHumLabel.text = [NSString stringWithFormat:@"%@%%",model.hum];
+    myWindDirLabel.text = model.dir;
+    myWindScLabel.text = model.sc;
+
+}
 - (void)setData{
     myDateLabel.text = @"test";
     myHumLabel.text = @"test";
@@ -60,5 +79,4 @@
     myWindScLabel.text = @"test";
     myWindDirLabel.text = @"test";
 }
-
 @end

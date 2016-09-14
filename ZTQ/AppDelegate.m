@@ -23,13 +23,15 @@
 //判断apiKey是否可用
 - (void)configureAPIKey
 {
-    if ([APIKey length] == 0)
+    if ([MapAPIKey length] == 0)
     {
         NSString *reason = [NSString stringWithFormat:@"apiKey为空，请检查key是否正确设置。"];
-        [UIAlertController showAlsert:reason withVC:self.window.rootViewController];
+        [UIAlertController showAlsert:reason withVC:self.window.rootViewController okAction:^{
+            
+        }];
     }
     
-    [AMapServices sharedServices].apiKey = (NSString *)APIKey;
+    [AMapServices sharedServices].apiKey = (NSString *)MapAPIKey;
     
 }
 
@@ -105,7 +107,8 @@
             //NSLog(@"reGeocode:%@", regeocode);
             
         }else{
-            [UIAlertController showAlsert:@"定位失败" withVC:self.window.rootViewController];
+
+            [_delegate didFailedLocation];
         }
         
     }];
@@ -116,11 +119,15 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
     // Override point for customization after application launch.
+    [self configureAPIKey];
+    [self createLocationManager];
+
     _window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     [_window makeKeyAndVisible];
     
     ZTQTabBar *rootTabBar = [ZTQTabBar new];
     _window.rootViewController = rootTabBar;
+     [self locationStart];
     return YES;
 }
 
@@ -146,4 +153,28 @@
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
 
+- (void) amapLocationManager:(AMapLocationManager *)manager didFailWithError:(NSError *)error{
+   
+    [_delegate didFailedLocation];
+    [manager stopUpdatingLocation];
+    
+}
+
+- (void) amapLocationManager:(AMapLocationManager *)manager didUpdateLocation:(CLLocation *)location{
+    //CLLocation *currentLocation = location;
+    [LocationManager stopUpdatingLocation];
+    CLLocationCoordinate2D coor = location.coordinate;
+    //   NSLog(@"%lf--------%lf",coor.latitude,coor.longitude);
+    
+    [self getAddressByLatitude:coor.latitude longitude:coor.longitude];
+    
+
+}
+
+-(void)getAddressByLatitude:(CLLocationDegrees)latitude longitude:(CLLocationDegrees)longitude{
+    //反地理编码
+    
+    [_delegate getLatitude:latitude withLongitude:longitude];
+    
+}
 @end

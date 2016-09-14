@@ -10,6 +10,6 @@
 
 @interface UILabel (UILableEx)
 
--(void)setLabelWidth:(NSString *)str andLabFont:(UIFont*)myfont andMaxWidth:(float)maxwidth andMaxHeight:(float)maxheight;
+-(CGSize)setLabelWidth:(NSString *)str andLabFont:(float)myfont andMaxWidth:(float)maxwidth andMaxHeight:(float)maxheight;
 
 @end

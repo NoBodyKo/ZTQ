@@ -10,6 +10,6 @@
 
 @interface ZTQWheatherInfoCollectionViewCell : UICollectionViewCell
 
+- (void)setDataWith:(ZTQHourlyWeatherInfo *)model;
 - (void)setData;
-
 @end

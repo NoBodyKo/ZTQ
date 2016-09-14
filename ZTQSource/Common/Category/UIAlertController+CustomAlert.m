@@ -31,10 +31,14 @@
 
 }
 
-+ (void) showAlsert:(NSString *) msg withVC:(UIViewController *)vc{
++ (void) showAlsert:(NSString *) msg withVC:(UIViewController *)vc okAction:(void(^)())okBlock{
     UIAlertController *ac = [UIAlertController alertControllerWithTitle:@"提示" message:msg preferredStyle:UIAlertControllerStyleAlert];
     ac.view.layer.cornerRadius = 10;
-    UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:nil];
+    UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        if (okBlock) {
+            okBlock();
+        }
+    }];
     [ac addAction:okAction];
     [vc presentViewController:ac animated:YES completion:nil];
 }

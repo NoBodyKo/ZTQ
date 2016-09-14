@@ -15,6 +15,10 @@
 #   define DLog(...)
 #endif
 
+#define WEAKSELF __weak typeof(self) weakSelf = self
+#define MYURL @"http://apis.baidu.com/heweather/pro/weather"
+#define MYJQURL @"http://apis.baidu.com/heweather/pro/attractions"
+
 #define WIDTH [UIScreen mainScreen].bounds.size.width
 #define HEIGHT [UIScreen mainScreen].bounds.size.height
 
@@ -39,15 +43,30 @@
 //UI
 #import <Masonry.h>
 //本地
+#import "CityDao.h"
+#import "ProvinceDao.h"
+#import "ScenicSpotDao.h"
+#import "AppDelegate.h"
 #import "MyDbUtil.h"
 #import "MyRequest.h"
 #import "UIAlertController+CustomAlert.h"
 #import "NSString+StringEx.h"
 #import "CityInfo.h"
 #import "ScenicSpotInfo.h"
+#import "CityModel.h"
+#import "ProvinceModel.h"
+#import "ScenicSpotModel.h"
 #import "VCFactory.h"
 #import "UIImage+UIImageEx.h"
-
+#import "UILabel+UILableEx.h"
+#import "WheatherInfoModel.h"
+#import "ZTQAqiModel.h"
+#import "ZTQDailyWeatherInfo.h"
+#import "ZTQHourlyWeatherInfo.h"
+#import "ZTQCurrentWeatherInfo.h"
+#import "ZTQSuggestionInfo.h"
+#import "ZTQCustomLabel.h"
+#import "ChineseToPinyin.h"
 
 // Include any system framework and library headers here that should be included in all compilation units.
 // You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.

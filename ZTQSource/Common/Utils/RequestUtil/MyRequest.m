@@ -19,6 +19,8 @@
             //有一些服务器返回的可能不是JSON格式类型
             //通过下面代码可以支持其他类型
             //
+           
+            [sharedInstance.requestSerializer setValue:@"a0bfb9a9929bb7a56cc6fc879946b957" forHTTPHeaderField:@"apikey"];
             sharedInstance.responseSerializer = [AFJSONResponseSerializer serializer];
             sharedInstance.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"text/html",@"text/plain",@"application/json",@"text/xml",nil];
         }

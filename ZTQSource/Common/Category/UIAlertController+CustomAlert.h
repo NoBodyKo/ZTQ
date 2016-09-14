@@ -11,5 +11,5 @@
 @interface UIAlertController (CustomAlert)
 + (void) showAlsert:(NSString *) msg withTitle:(NSString *) title withVC:(UIViewController *) vc cancelAction:(void(^)())cancelBlock okAction:(void(^)())okBlock;
 
-+ (void) showAlsert:(NSString *) msg withVC:(UIViewController *)vc;
++ (void) showAlsert:(NSString *) msg withVC:(UIViewController *)vc okAction:(void(^)())okBlock;
 @end
