@@ -113,7 +113,36 @@
         
     }];
 }
+//基本配置
+- (void)initForApp{
+    NSFileManager *fm = [NSFileManager defaultManager];
+    
+    
+    
+    //1. 通过 NSFileManager 对象 fm 来判断文件是否存在，存在 返回YES  不存在返回NO
+    
+   
+    
+    NSArray *path = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    
+    //取得第一个Documents文件夹的路径
+    
+    NSString *filePath = [path objectAtIndex:0];
+    
+    
+    
+    NSString *plistPath = [filePath stringByAppendingPathComponent:@"weatherInfo.plist"];
+//    DLog(@"%@",plistPath);
+     BOOL isExist = [fm fileExistsAtPath:plistPath];
+    if (!isExist) {
+        [[NSUserDefaults standardUserDefaults] setObject:plistPath forKey:@"weatherInfoPath"];
+        
+        //开始创建文件
+        
+        [fm createFileAtPath:plistPath contents:nil attributes:nil];
 
+    }
+}
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
@@ -121,7 +150,7 @@
     // Override point for customization after application launch.
     [self configureAPIKey];
     [self createLocationManager];
-
+    [self initForApp];
     _window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     [_window makeKeyAndVisible];
     

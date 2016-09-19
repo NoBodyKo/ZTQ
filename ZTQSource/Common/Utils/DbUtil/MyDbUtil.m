@@ -43,22 +43,22 @@
     
     //如果不存在 isExist = NO，拷贝工程里的数据库到Documents下
     if(isExist){
-        [fm removeItemAtPath:dbFilePath error:nil];
-        
-        NSString *backupDbPath = [[NSBundle mainBundle]
-                                  
-                                  pathForResource:@"province"
-                                  
-                                  ofType:@"db"];
-        
-        //这一步实现数据库的添加，
-        
-        // 通过NSFileManager 对象的复制属性，把工程中数据库的路径拼接到应用程序的路径上
-        
-        BOOL cp = [fm copyItemAtPath:backupDbPath toPath:dbFilePath error:nil];
-        if (cp) {
-            DLog(@"%d",cp);
-        }
+//        [fm removeItemAtPath:dbFilePath error:nil];
+//        
+//        NSString *backupDbPath = [[NSBundle mainBundle]
+//                                  
+//                                  pathForResource:@"province"
+//                                  
+//                                  ofType:@"db"];
+//        
+//        //这一步实现数据库的添加，
+//        
+//        // 通过NSFileManager 对象的复制属性，把工程中数据库的路径拼接到应用程序的路径上
+//        
+//        BOOL cp = [fm copyItemAtPath:backupDbPath toPath:dbFilePath error:nil];
+//        if (cp) {
+//            DLog(@"%d",cp);
+//        }
         
     }
     else if (!isExist)

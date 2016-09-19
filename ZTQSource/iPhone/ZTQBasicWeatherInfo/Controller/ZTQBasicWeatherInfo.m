@@ -32,7 +32,31 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     ((AppDelegate*)[UIApplication sharedApplication].delegate).delegate=self;
+    
     [self prepareView];
+    NSArray *path = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    
+    //取得第一个Documents文件夹的路径
+    
+    NSString *filePath = [path objectAtIndex:0];
+    
+    
+    
+    NSString *plistPath = [filePath stringByAppendingPathComponent:@"weatherInfo.plist"];
+
+    NSMutableArray *historyDataArray = [NSMutableArray arrayWithContentsOfFile:plistPath];
+    DLog(@"%@",plistPath);
+    DLog(@"%@",historyDataArray);
+    if (historyDataArray.count > 0) {
+        
+        for (NSDictionary *tempDict in historyDataArray) {
+            _weatherInfo = [WheatherInfoModel new];
+            [_weatherInfo setValuesForKeysWithDictionary:tempDict];
+        }
+        [self reloadDataWith:_weatherInfo];
+    }
+
+    
 //    [self getData];
     // Do any additional setup after loading the view from its nib.
 }
@@ -57,7 +81,7 @@
     }];
     
     _cityLabel = [[UILabel alloc] init];
-    _cityLabel.textColor = [UIColor blackColor];
+    _cityLabel.textColor = [UIColor whiteColor];
     _cityLabel.textAlignment = NSTextAlignmentCenter;
     [self.view addSubview:_cityLabel];
     
@@ -69,7 +93,7 @@
     }];
     
     _wheatherInfoLabel = [[UILabel alloc] init];
-    _wheatherInfoLabel.textColor = [UIColor blackColor];
+    _wheatherInfoLabel.textColor = [UIColor whiteColor];
     _wheatherInfoLabel.textAlignment = NSTextAlignmentCenter;
     [self.view addSubview:_wheatherInfoLabel];
     
@@ -81,7 +105,7 @@
     }];
     
     _tempLabel = [[UILabel alloc] init];
-    _tempLabel.textColor = [UIColor blackColor];
+    _tempLabel.textColor = [UIColor whiteColor];
     _tempLabel.textAlignment = NSTextAlignmentCenter;
     _tempLabel.adjustsFontSizeToFitWidth = YES;
     [self.view addSubview:_tempLabel];
@@ -94,7 +118,7 @@
     }];
     
     _airQulityLabel = [[UILabel alloc] init];
-    _airQulityLabel.textColor = [UIColor blackColor];
+    _airQulityLabel.textColor = [UIColor whiteColor];
 //    _airQulityLabel.backgroundColor = [UIColor blackColor];
     _airQulityLabel.textAlignment = NSTextAlignmentLeft;
     [self.view addSubview:_airQulityLabel];
@@ -144,7 +168,7 @@
         label.font = [UIFont systemFontOfSize:14.0f];
         label.backgroundColor = [UIColor colorWithWhite:1 alpha:0];
         label.textAlignment = NSTextAlignmentLeft;
-        label.textColor = [UIColor blackColor];
+        label.textColor = [UIColor whiteColor];
         label.text = arr[i];
         [headView addSubview:label];
 
@@ -267,10 +291,23 @@
        
         
         NSArray *tempArray;
+        
         for (NSString *key in [result allKeys]) {
             tempArray = [result objectForKey:key];
             
         }
+        NSArray *path = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+        
+        //取得第一个Documents文件夹的路径
+        
+        NSString *filePath = [path objectAtIndex:0];
+        
+        
+        
+        NSString *plistPath = [filePath stringByAppendingPathComponent:@"weatherInfo.plist"];
+    
+        [tempArray writeToFile:plistPath atomically:YES];
+        
         for (NSDictionary *tempDict in tempArray) {
             _weatherInfo = [WheatherInfoModel new];
             [_weatherInfo setValuesForKeysWithDictionary:tempDict];
@@ -287,6 +324,7 @@
     if (!_hourlyWeatherInfoArray) {
         _hourlyWeatherInfoArray = [NSMutableArray array];
     }
+    [_hourlyWeatherInfoArray removeAllObjects];
     for (NSDictionary *tempDict in data.hourly_forecast) {
         ZTQHourlyWeatherInfo *model = [ZTQHourlyWeatherInfo new];
         [model setValuesForKeysWithDictionary:tempDict];
