@@ -13,6 +13,7 @@
 @property (nonatomic, copy) NSString *cityID;
 @property (nonatomic, copy) NSString *cityName;
 @property (nonatomic, strong) NSString *proName;
+@property (nonatomic, copy) NSString *keys;
 
 
 @end

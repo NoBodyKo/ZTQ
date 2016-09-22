@@ -11,4 +11,6 @@
 @interface NSString (StringEx)
 + (BOOL)StringIsNull:(NSString *) str;
 
+- (NSArray *)getSubStrBySeparatedStr:(NSString *)separatedString;
+
 @end

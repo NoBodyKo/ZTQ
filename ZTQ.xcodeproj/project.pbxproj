@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3003EFC01D90E28D005E30C3 /* ZTQCityList.m in Sources */ = {isa = PBXBuildFile; fileRef = 3003EFBF1D90E28D005E30C3 /* ZTQCityList.m */; };
+		300592FD1D921758001F7D61 /* CustomIndexView.m in Sources */ = {isa = PBXBuildFile; fileRef = 300592FC1D921758001F7D61 /* CustomIndexView.m */; };
+		300593011D927480001F7D61 /* HotCityList.m in Sources */ = {isa = PBXBuildFile; fileRef = 300593001D927480001F7D61 /* HotCityList.m */; };
 		3010AB3B1D88DAAC006567FE /* MyCollectionViewLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 3010AB3A1D88DAAC006567FE /* MyCollectionViewLayout.m */; };
 		3010AB3E1D88F9BF006567FE /* ZTQCustomLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3010AB3D1D88F9BF006567FE /* ZTQCustomLabel.m */; };
 		3010AB5F1D891E6C006567FE /* BG3.png in Resources */ = {isa = PBXBuildFile; fileRef = 3010AB401D891E6C006567FE /* BG3.png */; };
@@ -102,6 +105,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3003EFBE1D90E28D005E30C3 /* ZTQCityList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZTQCityList.h; sourceTree = "<group>"; };
+		3003EFBF1D90E28D005E30C3 /* ZTQCityList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZTQCityList.m; sourceTree = "<group>"; };
+		300592FB1D921758001F7D61 /* CustomIndexView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomIndexView.h; sourceTree = "<group>"; };
+		300592FC1D921758001F7D61 /* CustomIndexView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomIndexView.m; sourceTree = "<group>"; };
+		300592FF1D927480001F7D61 /* HotCityList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HotCityList.h; sourceTree = "<group>"; };
+		300593001D927480001F7D61 /* HotCityList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HotCityList.m; sourceTree = "<group>"; };
 		3010AB391D88DAAC006567FE /* MyCollectionViewLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyCollectionViewLayout.h; sourceTree = "<group>"; };
 		3010AB3A1D88DAAC006567FE /* MyCollectionViewLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyCollectionViewLayout.m; sourceTree = "<group>"; };
 		3010AB3C1D88F9BF006567FE /* ZTQCustomLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZTQCustomLabel.h; sourceTree = "<group>"; };
@@ -247,6 +256,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		300592FE1D927463001F7D61 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				300592FF1D927480001F7D61 /* HotCityList.h */,
+				300593001D927480001F7D61 /* HotCityList.m */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		3010AB3F1D891E6C006567FE /* WeatherBgImage */ = {
 			isa = PBXGroup;
 			children = (
@@ -500,6 +518,8 @@
 				3010AB7F1D891F6D006567FE /* ChineseToPinyin.m */,
 				3010AB3C1D88F9BF006567FE /* ZTQCustomLabel.h */,
 				3010AB3D1D88F9BF006567FE /* ZTQCustomLabel.m */,
+				300592FB1D921758001F7D61 /* CustomIndexView.h */,
+				300592FC1D921758001F7D61 /* CustomIndexView.m */,
 			);
 			path = Class;
 			sourceTree = "<group>";
@@ -518,6 +538,7 @@
 		30AA45E31D59D67500EAAEC5 /* iPhone */ = {
 			isa = PBXGroup;
 			children = (
+				30F04D371D8FEE740069AC3D /* ZTQCityList */,
 				30DC8B861D86499300625120 /* ZTQTabBar */,
 				30AA45E41D59D67500EAAEC5 /* ZTQBasicWeatherInfo */,
 				30AA45E51D59D67500EAAEC5 /* ZTQFutureWeatherInfo */,
@@ -655,6 +676,16 @@
 				3010AB3A1D88DAAC006567FE /* MyCollectionViewLayout.m */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		30F04D371D8FEE740069AC3D /* ZTQCityList */ = {
+			isa = PBXGroup;
+			children = (
+				300592FE1D927463001F7D61 /* Views */,
+				3003EFBE1D90E28D005E30C3 /* ZTQCityList.h */,
+				3003EFBF1D90E28D005E30C3 /* ZTQCityList.m */,
+			);
+			path = ZTQCityList;
 			sourceTree = "<group>";
 		};
 		79AA09BF3FC9EDA8BFD9C4DB /* Frameworks */ = {
@@ -894,12 +925,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				300593011D927480001F7D61 /* HotCityList.m in Sources */,
 				302269081D82524000493AD0 /* ScenicSpotModel.m in Sources */,
 				30AA45B31D59D0FF00EAAEC5 /* ViewController.m in Sources */,
 				30DC8B9A1D86F01E00625120 /* ZTQWheatherInfoCollectionViewCell.m in Sources */,
 				30C8E91E1D812B1C00CB5A20 /* MyRequest.m in Sources */,
 				30DC8B851D86479400625120 /* VCFactory.m in Sources */,
 				3010AB3E1D88F9BF006567FE /* ZTQCustomLabel.m in Sources */,
+				3003EFC01D90E28D005E30C3 /* ZTQCityList.m in Sources */,
 				30AA45B01D59D0FF00EAAEC5 /* AppDelegate.m in Sources */,
 				3012F2A01D87E6420041E015 /* ZTQCurrentWeatherInfo.m in Sources */,
 				3012F2921D8795060041E015 /* WheatherInfoModel.m in Sources */,
@@ -925,6 +958,7 @@
 				3012F29D1D87E4EC0041E015 /* ZTQHourlyWeatherInfo.m in Sources */,
 				30DC8B771D86448000625120 /* ZTQFutureWeatherInfo.m in Sources */,
 				302269201D82A05C00493AD0 /* CityInfo.m in Sources */,
+				300592FD1D921758001F7D61 /* CustomIndexView.m in Sources */,
 				302268FB1D824E3500493AD0 /* MyDbUtil.m in Sources */,
 				30DC8B7C1D86449800625120 /* ZTQLifeInfo.m in Sources */,
 			);
@@ -1068,6 +1102,7 @@
 			baseConfigurationReference = A6BC6C76ACD09CE7DD0B0402 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = ZTQ/ZTQPrefixHeader.pch;
@@ -1083,6 +1118,7 @@
 			baseConfigurationReference = F2E3D480E713E6DE8206CF37 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = ZTQ/ZTQPrefixHeader.pch;

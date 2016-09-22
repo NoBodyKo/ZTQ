@@ -43,4 +43,16 @@
     [vc presentViewController:ac animated:YES completion:nil];
 }
 
++ (void) showAlsert:(NSString *) msg withVC:(UIViewController *)vc{
+   __block UIAlertController *ac = [UIAlertController alertControllerWithTitle:@"" message:msg preferredStyle:UIAlertControllerStyleAlert];
+    ac.view.bounds = CGRectMake(0, 0, 50, 50);
+    ac.view.layer.cornerRadius = 25;
+    [vc presentViewController:ac animated:YES completion:^{
+        [UIView animateWithDuration:2.0 animations:^{
+            ac.view.alpha = 0;
+        } completion:^(BOOL finished) {
+            [ac dismissViewControllerAnimated:YES completion:nil];
+        }];
+    }];
+}
 @end

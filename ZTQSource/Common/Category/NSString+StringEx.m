@@ -19,5 +19,7 @@
     }
 }
 
-
+- (NSArray *)getSubStrBySeparatedStr:(NSString *)separatedString{
+    return  [self componentsSeparatedByString:separatedString];
+}
 @end

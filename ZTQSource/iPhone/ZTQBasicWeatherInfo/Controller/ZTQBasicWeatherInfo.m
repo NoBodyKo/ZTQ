@@ -9,10 +9,11 @@
 #import "ZTQBasicWeatherInfo.h"
 #import "ZTQWheatherInfoCollectionViewCell.h"
 #import "MyCollectionViewLayout.h"
+#import "ZTQCityList.h"
 @interface ZTQBasicWeatherInfo ()<UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout,AddressDelegate>
 
 @property (nonatomic, strong) UIImageView *bgImageVew;
-@property (nonatomic, strong) UILabel *cityLabel;
+@property (nonatomic, strong) UIButton *cityLabel;
 @property (nonatomic, strong) UILabel *wheatherInfoLabel;
 @property (nonatomic, strong) UILabel *tempLabel;
 
@@ -74,15 +75,16 @@
     [self.view addSubview:_bgImageVew];
     [self.view sendSubviewToBack:_bgImageVew];
     [_bgImageVew mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.view);
+        make.top.equalTo(self.view); 
         make.left.equalTo(self.view);
         make.right.equalTo(self.view);
         make.bottom.equalTo(self.view);
     }];
     
-    _cityLabel = [[UILabel alloc] init];
-    _cityLabel.textColor = [UIColor whiteColor];
-    _cityLabel.textAlignment = NSTextAlignmentCenter;
+    _cityLabel = [UIButton buttonWithType:UIButtonTypeCustom];
+    [_cityLabel setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    _cityLabel.titleLabel.textAlignment = NSTextAlignmentCenter;
+    [_cityLabel addTarget:self action:@selector(changeCity:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:_cityLabel];
     
     [_cityLabel mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -338,7 +340,8 @@
     
     ZTQAqiModel *aqiInfo = [ZTQAqiModel new];
     [aqiInfo setValuesForKeysWithDictionary:data.aqi[@"city"]];
-    CGSize cityLabelNewSize = [_cityLabel setLabelWidth: [CityInfo shareUserInfo].cityName andLabFont:32.0 andMaxWidth:300 andMaxHeight:60];
+    [_cityLabel setTitle:[CityInfo shareUserInfo].cityName forState:UIControlStateNormal];
+    CGSize cityLabelNewSize = [_cityLabel.titleLabel setLabelWidth: [CityInfo shareUserInfo].cityName andLabFont:32.0 andMaxWidth:300 andMaxHeight:60];
     [_cityLabel mas_updateConstraints:^(MASConstraintMaker *make) {
         make.height.equalTo(@(cityLabelNewSize.height));
         make.width.equalTo(@(cityLabelNewSize.width));
@@ -370,7 +373,7 @@
 //        [model setValuesForKeysWithDictionary:temDict[@"wind"]]
 //        
 //    }
-    NSString *weatherStr = [ChineseToPinyin pinyinFromChiniseString:currentWeatherInfo.txt];
+    NSString *weatherStr = [ChineseToPinyin pinyinFromChiniseString:[currentWeatherInfo.txt getSubStrBySeparatedStr:@"/"][0]];
     weatherStr = [weatherStr lowercaseString];
     UIImage *image = [UIImage imageNamed:[NSString stringWithFormat:@"BG%@",weatherStr]];
     if (image == nil) {
@@ -381,6 +384,18 @@
 
 }
 
+
+
+- (void)changeCity:(UIButton *)sender{
+    ZTQCityList *cityList = [ZTQCityList new];
+    UINavigationController *newNav = [[UINavigationController alloc] initWithRootViewController:cityList];
+    [newNav.navigationBar setBackgroundImage:[UIImage imageNamed:@"BG3.png"] forBarMetrics:UIBarMetricsDefault];
+
+
+//    newNav.hidesBarsWhenKeyboardAppears = YES;
+
+    [self.navigationController presentViewController:newNav animated:YES completion:nil];
+}
 
 -(void)didFailedLocation
 {
@@ -413,6 +428,7 @@
     [self getData];
     
 }
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

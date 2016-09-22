@@ -26,4 +26,11 @@
  */
 + (NSString *) findCityIdByCityName:(NSString *)cityName andProName:(NSString *)proName;
 
+/**
+ 获得全部城市信息
+ */
++ (NSArray *) getAllCity;
+
++ (NSArray *) getAllCityKeys;
+
 @end
