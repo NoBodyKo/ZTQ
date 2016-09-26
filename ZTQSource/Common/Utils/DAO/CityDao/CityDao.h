@@ -30,7 +30,9 @@
  获得全部城市信息
  */
 + (NSArray *) getAllCity;
-
-+ (NSArray *) getAllCityKeys;
+/**
+ 通过关键字城市信息
+ */
++ (NSArray *) getAllCityByKeyWords:(NSString *)keyWords;
 
 @end

@@ -22,6 +22,7 @@ static const CGFloat NavgationHeight = 64;
 @property (nonatomic, strong) UISearchBar *mySearchBar;
 @property (nonatomic, strong) NSMutableArray *searchResultArray;
 @property (nonatomic, strong) NSMutableArray *hotCityArray;
+@property (nonatomic, strong) NSString *keyWordStr;
 @end
 
 @implementation ZTQCityList
@@ -35,7 +36,7 @@ static const CGFloat NavgationHeight = 64;
     [super viewDidLoad];
     [self prepareForview];
     [self getAllCityInfo];
-   
+    self.view.backgroundColor = [UIColor colorWithWhite:.95 alpha:1];
     _searchResultArray = [NSMutableArray array];
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -52,7 +53,8 @@ static const CGFloat NavgationHeight = 64;
     _mySearchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 0, WIDTH, 40)];
     _mySearchBar.delegate = self;
     _mySearchBar.returnKeyType = UIReturnKeySearch;
-    _mySearchBar.showsCancelButton = YES;
+    _mySearchBar.showsCancelButton = NO;
+    
     _mySearchBar.placeholder = @"输入城市/省份/地区名称";
     [self.view addSubview:_mySearchBar];
 
@@ -75,13 +77,13 @@ static const CGFloat NavgationHeight = 64;
     _searchResultTableView.backgroundColor = [UIColor colorWithWhite:.5 alpha:.5];
     _searchResultTableView.showsVerticalScrollIndicator = NO;
     _searchResultTableView.showsHorizontalScrollIndicator = NO;
-    _searchResultTableView.rowHeight = 40;
+    _searchResultTableView.estimatedRowHeight = 40;
     _searchResultTableView.hidden = YES;
     [self.view addSubview:_searchResultTableView];
 
     
     
-    _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(_mySearchBar.frame), self.view.bounds.size.width - 15, self.view.bounds.size.height - 40 - NavgationHeight) style:UITableViewStylePlain];
+    _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(_mySearchBar.frame) + 3, self.view.bounds.size.width - 15, self.view.bounds.size.height - 40 - NavgationHeight) style:UITableViewStylePlain];
     _tableView.delegate = self;
     _tableView.dataSource = self;
     _tableView.estimatedRowHeight = 40;
@@ -97,6 +99,10 @@ static const CGFloat NavgationHeight = 64;
     
 }
 - (void)backAction{
+    [_searchResultArray removeAllObjects];
+    [_hotCityArray removeAllObjects];
+    [_dataArray removeAllObjects];
+    [_mySearchBar resignFirstResponder];
     [self.navigationController dismissViewControllerAnimated:YES completion:nil];
 }
 - (void)getAllCityInfo{
@@ -118,6 +124,17 @@ static const CGFloat NavgationHeight = 64;
     [_tableView reloadData];
 }
 
+- (void)getCityByKeyWords:(NSString *)keyWords{
+    if (!_searchResultArray) {
+        _searchResultArray = [NSMutableArray array];
+    }
+    [_searchResultArray removeAllObjects];
+    if (keyWords.length > 0) {
+         [_searchResultArray addObjectsFromArray:[CityDao getAllCityByKeyWords:keyWords]];
+    }
+   
+    [_searchResultTableView reloadData];
+}
 - (void)getHotCityInfo{
     if (!_hotCityArray) {
         _hotCityArray = [NSMutableArray array];
@@ -147,30 +164,54 @@ static const CGFloat NavgationHeight = 64;
 }
 #pragma mark UISearchBarDelegate 回调
 - (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText{
-    
+    if (searchText.length <= 0) {
+        _searchResultTableView.backgroundColor = [UIColor colorWithWhite:.5 alpha:.5];
+    }else{
+        _searchResultTableView.backgroundColor = [UIColor colorWithWhite:1 alpha:1];
+    }
+    _keyWordStr = searchText;
+    [self getCityByKeyWords:searchText];
 }
 - (BOOL)searchBarShouldBeginEditing:(UISearchBar *)searchBar{
+    _mySearchBar.showsCancelButton = YES;
     _searchResultTableView.hidden = NO;
     [self.view bringSubviewToFront:_searchResultTableView];
     [self addGestuer];
     return YES;
 }
 -(void) searchBarSearchButtonClicked:(UISearchBar *)searchBar{
-    
+    [self getCityByKeyWords:searchBar.text];
+    [_mySearchBar resignFirstResponder];
 }
 -(void) searchBarCancelButtonClicked:(UISearchBar *)searchBar{
+     _mySearchBar.showsCancelButton = NO;
+    searchBar.text = nil;
     [searchBar resignFirstResponder];
+    [_searchResultArray removeAllObjects];
     [self.view sendSubviewToBack:_searchResultTableView];
-    
+    _searchResultTableView.backgroundColor = [UIColor colorWithWhite:.5 alpha:.5];
     _searchResultTableView.hidden = YES;
 //    self.navigationController.navigationBarHidden = NO;
 }
 
 - (void)dismissKeyboard:(UITapGestureRecognizer *)tapGuesTuer{
+    
     [_mySearchBar resignFirstResponder];
+    [self.view removeGestureRecognizer:tapGuesTuer];
     if (_searchResultArray.count <= 0) {
+        _mySearchBar.text = nil;
+        _mySearchBar.showsCancelButton = NO;
+        _searchResultTableView.backgroundColor = [UIColor colorWithWhite:.5 alpha:.5];
         [self.view sendSubviewToBack:_searchResultTableView];
         _searchResultTableView.hidden = YES;
+    }
+}
+
+
+#pragma mark ScrollViewDelegate
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView{
+    if (scrollView == _searchResultTableView) {
+        [self dismissKeyboard:_tapGestuer];
     }
 }
 #pragma mark - Table view data source
@@ -178,7 +219,7 @@ static const CGFloat NavgationHeight = 64;
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
 //#warning Incomplete implementation, return the number of sections
     if (tableView == _searchResultTableView) {
-        return 0;
+        return 1;
     }
     return _cityKeysArray.count;
 }
@@ -186,7 +227,7 @@ static const CGFloat NavgationHeight = 64;
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 //#warning Incomplete implementation, return the number of rows
     if (tableView == _searchResultTableView) {
-        return 0;
+        return _searchResultArray.count;
     }else{
         if (section == 0) {
             return 1;
@@ -203,8 +244,23 @@ static const CGFloat NavgationHeight = 64;
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    WEAKSELF;
     if (tableView == _searchResultTableView) {
-        return nil;
+        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SearchResultcell"];
+        if (!cell) {
+            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"SearchResultcell"];
+        }
+        CityModel *model = _searchResultArray[indexPath.row];
+        
+        NSMutableAttributedString *attributedStr = [[NSMutableAttributedString alloc]initWithString:model.cityName];
+        NSRange range = [model.cityName rangeOfString:_keyWordStr];
+        [attributedStr addAttribute:NSForegroundColorAttributeName
+         
+                              value:[UIColor cyanColor]
+         
+                              range:NSMakeRange(range.location, range.length)];
+        cell.textLabel.attributedText = attributedStr;
+        return cell;
     }
     else if (indexPath.section == 0){
         
@@ -212,6 +268,15 @@ static const CGFloat NavgationHeight = 64;
         if (!cell) {
             cell = [[HotCityList alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"hotList"];
         }
+        cell.block = ^(CityModel *model){
+            [CityInfo shareUserInfo].cityName = model.cityName;
+            [CityInfo shareUserInfo].cityID = model.cityID;
+            [CityInfo shareUserInfo].cityProvince = model.proName;
+            [weakSelf.navigationController dismissViewControllerAnimated:YES completion:^{
+                [[NSNotificationCenter defaultCenter] postNotificationName:@"getWeatherInfo" object:nil];
+            }];
+            
+        };
         [cell setData:_hotCityArray withCol:3];
         return cell;
     }else{
@@ -243,7 +308,7 @@ static const CGFloat NavgationHeight = 64;
     if (tableView == _searchResultTableView) {
         return nil;
     }else if (section == 0){
-        return nil;
+        return @"热门城市";
     }
     return _cityKeysArray[section];
 }
@@ -252,6 +317,9 @@ static const CGFloat NavgationHeight = 64;
     return 15.0;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    if (tableView == _searchResultTableView) {
+        return 40;
+    }
     if (indexPath.section == 0) {
         int total = (int)_hotCityArray.count;
         int row = total % 3 ? (total / 3 + 1) :  total / 3;
@@ -260,7 +328,26 @@ static const CGFloat NavgationHeight = 64;
     return 40;
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    
+    if (tableView == _searchResultTableView) {
+        CityModel *model = _searchResultArray[indexPath.row];
+        [CityInfo shareUserInfo].cityName = model.cityName;
+        [CityInfo shareUserInfo].cityID = model.cityID;
+        [CityInfo shareUserInfo].cityProvince = model.proName;
+        [self.navigationController dismissViewControllerAnimated:YES completion:^{
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"getWeatherInfo" object:nil];
+        }];
+    }else if (indexPath.section < 1){
+        
+    }else{
+        CityModel *model = _dataArray[indexPath.row];
+        [CityInfo shareUserInfo].cityName = model.cityName;
+        [CityInfo shareUserInfo].cityID = model.cityID;
+        [CityInfo shareUserInfo].cityProvince = model.proName;
+        [self.navigationController dismissViewControllerAnimated:YES completion:^{
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"getWeatherInfo" object:nil];
+        }];
+
+    }
 }
 
 #pragma mark CustomIndexViewDelegate

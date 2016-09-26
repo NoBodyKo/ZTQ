@@ -57,7 +57,7 @@
         [self reloadDataWith:_weatherInfo];
     }
 
-    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(getData) name:@"getWeatherInfo" object:nil];
 //    [self getData];
     // Do any additional setup after loading the view from its nib.
 }
@@ -286,12 +286,15 @@
 
 - (void)getData{
     WEAKSELF;
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    hud.label.text = @"加载中";
+    hud.removeFromSuperViewOnHide = YES;
     NSDictionary *dict = @{
                              @"cityid":[CityInfo shareUserInfo].cityID
                              };
     [MyRequest getDataByAddress:MYURL parmas:dict requestSucess:^(id result) {
        
-        
+        [MBProgressHUD hideHUDForView:self.view animated:YES];
         NSArray *tempArray;
         
         for (NSString *key in [result allKeys]) {
@@ -318,6 +321,10 @@
 //        DLog(@"%@",_weatherInfo);
         
     } failer:^(id failer) {
+        [MBProgressHUD hideHUDForView:self.view animated:YES];
+        [UIAlertController showAlsert:[NSString stringWithFormat:@"%@",failer] withVC:self okAction:^{
+            
+        }];
         DLog(@"%@",failer);
     }];
 }
@@ -342,9 +349,14 @@
     [aqiInfo setValuesForKeysWithDictionary:data.aqi[@"city"]];
     [_cityLabel setTitle:[CityInfo shareUserInfo].cityName forState:UIControlStateNormal];
     CGSize cityLabelNewSize = [_cityLabel.titleLabel setLabelWidth: [CityInfo shareUserInfo].cityName andLabFont:32.0 andMaxWidth:300 andMaxHeight:60];
+    [_cityLabel.titleLabel mas_updateConstraints:^(MASConstraintMaker *make) {
+        make.height.equalTo(@(cityLabelNewSize.height));
+        make.width.equalTo(@(cityLabelNewSize.width + 5));
+        
+    }];
     [_cityLabel mas_updateConstraints:^(MASConstraintMaker *make) {
         make.height.equalTo(@(cityLabelNewSize.height));
-        make.width.equalTo(@(cityLabelNewSize.width));
+        make.width.equalTo(@(cityLabelNewSize.width + 5));
         
     }];
     CGSize  weatherInfoLabelNewSize = [_wheatherInfoLabel setLabelWidth:currentWeatherInfo.txt andLabFont:17.0 andMaxWidth:300 andMaxHeight:60];
@@ -360,10 +372,10 @@
         
     }];
     
-    CGSize aqiLabeNewSize = [_airQulityLabel setLabelWidth:[NSString stringWithFormat:@"空气质量：%@",aqiInfo.qlty] andLabFont:14.0 andMaxWidth:400 andMaxHeight:30];
+    CGSize aqiLabeNewSize = [_airQulityLabel setLabelWidth:[NSString stringWithFormat:@"空气质量：%@",[NSString StringIsNull:aqiInfo.qlty] ?@"暂无数据" :aqiInfo.qlty] andLabFont:14.0 andMaxWidth:400 andMaxHeight:30];
     [_airQulityLabel mas_updateConstraints:^(MASConstraintMaker *make) {
         make.height.equalTo(@(aqiLabeNewSize.height));
-        make.width.equalTo(@(aqiLabeNewSize.width));
+        make.width.equalTo(@(aqiLabeNewSize.width + 5));
         
     }];
 //    for (NSDictionary *temDict in data.daily_forecast) {
@@ -380,6 +392,7 @@
         image = [UIImage imageNamed:@"BG3"];
     }
     _bgImageVew.image = image;
+    [self updateViewConstraints];
     [_futurWheatherInfoView reloadData];
 
 }
@@ -399,7 +412,7 @@
 
 -(void)didFailedLocation
 {
-    ((AppDelegate*)[UIApplication sharedApplication].delegate).isGetLocatNow = NO;
+//    ((AppDelegate*)[UIApplication sharedApplication].delegate).isGetLocatNow = NO;
     [UIAlertController showAlsert:@"未能定位到当前城市" withVC:self okAction:^{
         if ([NSString StringIsNull:[CityInfo shareUserInfo].cityID]) {
             [CityInfo shareUserInfo].cityName = @"北京";
@@ -415,7 +428,7 @@
 
 
 -(void)didSUccessLocation{
-    ((AppDelegate*)[UIApplication sharedApplication].delegate).isGetLocatNow = NO;
+//    ((AppDelegate*)[UIApplication sharedApplication].delegate).isGetLocatNow = NO;
    
     
     [CityInfo shareUserInfo].cityID = [CityDao findCityIdByCityName:[CityInfo shareUserInfo].cityName andProName:[CityInfo shareUserInfo].cityProvince];

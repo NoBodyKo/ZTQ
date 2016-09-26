@@ -15,6 +15,9 @@
 #   define DLog(...)
 #endif
 
+#define isIOS9 ([[UIDevice currentDevice].systemVersion intValue]>=9?YES:NO)
+#define isIOS10 ([[UIDevice currentDevice].systemVersion intValue]>=10?YES:NO)
+
 #define WEAKSELF __weak typeof(self) weakSelf = self
 #define MYURL @"http://apis.baidu.com/heweather/pro/weather"
 #define MYJQURL @"http://apis.baidu.com/heweather/pro/attractions"
@@ -42,6 +45,7 @@
 #import <AMapLocationKit/AMapLocationKit.h>
 //UI
 #import <Masonry.h>
+#import <MBProgressHUD.h>
 //本地
 #import "CityDao.h"
 #import "ProvinceDao.h"

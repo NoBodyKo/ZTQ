@@ -49,6 +49,9 @@
 - (void)locationStart{
     //[LocationManager startUpdatingLocation];
     _isGetLocatNow = YES;
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.window animated:YES];
+    hud.label.text = @"正在定位";
+    hud.removeFromSuperViewOnHide = YES;
     [LocationManager requestLocationWithReGeocode:YES completionBlock:^(CLLocation *location, AMapLocationReGeocode *regeocode, NSError *error) {
         
         if (error)
@@ -61,6 +64,8 @@
         DLog(@"regeocode:%@",regeocode.description);
         if (regeocode)
         {
+            [MBProgressHUD hideHUDForView:self.window animated:YES];
+            _isGetLocatNow = NO;
             if ([NSString StringIsNull:[CityInfo shareUserInfo].cityName]) {
                 [CityInfo shareUserInfo].cityProvince = [regeocode.province substringToIndex:regeocode.province.length -  1];
                 [CityInfo shareUserInfo].cityCountry = regeocode.country;
@@ -107,7 +112,8 @@
             //NSLog(@"reGeocode:%@", regeocode);
             
         }else{
-
+             [MBProgressHUD hideHUDForView:self.window animated:YES];
+            _isGetLocatNow = NO;
             [_delegate didFailedLocation];
         }
         

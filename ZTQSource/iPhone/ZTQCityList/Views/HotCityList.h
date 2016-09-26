@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-
+typedef void (^hotCityBlock)(CityModel *);
 @interface HotCityList : UITableViewCell
+@property (nonatomic, copy) hotCityBlock block;
 - (void)setData:(NSArray *)dataArray withCol:(int)col;
+
 @end

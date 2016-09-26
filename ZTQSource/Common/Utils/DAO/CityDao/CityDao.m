@@ -105,4 +105,26 @@
     return mArray;
 
 }
+
++ (NSArray *) getAllCityByKeyWords:(NSString *)keyWords{
+    FMDatabase *db = [MyDbUtil createDBWithFilename:@"province.db"];
+    NSMutableArray *mArray = [NSMutableArray array];
+    [db open];
+    NSString *sqlStr = [NSString stringWithFormat:@"select * from tb_city where cityName like '%%%@%%'",keyWords];
+    
+    FMResultSet *rs = [db executeQuery:sqlStr];
+    while ([rs next]) {
+        
+        CityModel *city = [[CityModel alloc] init];
+        city.cityID = [rs stringForColumn:@"cityID"];
+        city.cityName = [rs stringForColumn:@"cityName"];
+        city.proName = [rs stringForColumn:@"proName"];
+        city.keys = [rs stringForColumn:@"keys"];
+        [mArray addObject:city];
+        
+    }
+    [db close];
+    return mArray;
+
+}
 @end

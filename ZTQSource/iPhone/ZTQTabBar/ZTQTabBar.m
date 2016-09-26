@@ -36,7 +36,29 @@
         vc.tabBarItem.image = [image imageByScalingToSize:imageSize];
         
         UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:vc];
-        [nav.navigationBar setBackgroundImage:[UIImage imageNamed:@"bigShadow.png"] forBarMetrics:UIBarMetricsCompact];
+        
+        
+        NSArray *subviews = nav.navigationBar.subviews;
+        for (id viewObj in subviews) {
+            if (isIOS10) {
+                //iOS10,改变了状态栏的类为_UIBarBackground
+                NSString *classStr = [NSString stringWithUTF8String:object_getClassName(viewObj)];
+                if ([classStr isEqualToString:@"_UIBarBackground"]) {
+                    UIImageView *imageView=(UIImageView *)viewObj;
+                    imageView.hidden=YES;
+                   
+                }
+            }else{
+                //iOS9以及iOS9之前使用的是_UINavigationBarBackground
+                NSString *classStr = [NSString stringWithUTF8String:object_getClassName(viewObj)];
+                if ([classStr isEqualToString:@"_UINavigationBarBackground"]) {
+                    UIImageView *imageView=(UIImageView *)viewObj;
+                    imageView.image = [UIImage imageNamed:@"bigShadow.png"];
+                    imageView.hidden=YES;
+                }
+            }
+        }
+//        [nav.navigationBar setBackgroundImage:[UIImage imageNamed:@"bigShadow.png"] forBarMetrics:UIBarMetricsCompact];
         nav.navigationBar.translucent = YES;
         nav.navigationBar.layer.masksToBounds = YES;
 //        vc.navigationItem.title = vc.tabBarItem.title;
